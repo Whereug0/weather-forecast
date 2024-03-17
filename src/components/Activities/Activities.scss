@@ -1,0 +1,40 @@
+.activities {
+  display: flex;
+  flex-direction: column;
+  background: rgba(222, 171, 77, 1);
+  border-radius: 40px;
+  width: 100%;
+  gap: 36px;
+}
+
+.title {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 35px;
+}
+
+.images{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 21px;
+  margin-bottom: 34px;
+  .img{
+    width: 20%;
+  }
+}
+
+
+@media (max-width: 1280px) {
+  .img{
+    width: 20%;
+  }
+}
+
+@media (max-width:480px) {
+  .activities{
+    display: none;
+  }
+}
