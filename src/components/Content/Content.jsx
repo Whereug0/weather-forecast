@@ -9,6 +9,14 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+
+
+import tempIcon from '../../assets/icons/temp.svg'
+import windIcon from '../../assets/icons/wind.svg'
+import dromIcon from '../../assets/icons/drop.svg'
+import sunIcon from '../../assets/icons/sunIcon.svg'
+import clody from '../../assets/icons/PartlyCloudy.svg'
+
 const Content = (props) => {
   const {
     feels,
@@ -16,6 +24,15 @@ const Content = (props) => {
     chanseOfRain,
     UVindex,
   } = props
+
+  const now = new Date();
+  const hours = now.getUTCHours();
+  const hoursPM = hours >= 12 ? hours - 12 : hours;
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const formattedHours = hoursPM < 10 ? `0${hoursPM}` : hoursPM;
+  const minutes = now.getUTCMinutes();
+  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  const time = `${formattedHours}:${formattedMinutes} ${period} GMT`;
 
 
   return (
@@ -32,13 +49,40 @@ const Content = (props) => {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
         >
-          <SwiperSlide>MON</SwiperSlide>
-          <SwiperSlide>TUES</SwiperSlide>
-          <SwiperSlide>WEDN</SwiperSlide>
-          <SwiperSlide>TRUR</SwiperSlide>
-          <SwiperSlide>FRI</SwiperSlide>
-          <SwiperSlide>SAT</SwiperSlide>
-          <SwiperSlide>SUN</SwiperSlide>
+          <SwiperSlide>
+            MON
+            <img src={clody} alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            TUES
+            <img src={clody} alt="" />
+
+          </SwiperSlide>
+          <SwiperSlide>
+            WEDN
+            <img src={clody} alt="" />
+
+          </SwiperSlide>
+          <SwiperSlide>
+            THUR
+            <img src={clody} alt="" />
+
+          </SwiperSlide>
+          <SwiperSlide>
+            FRI
+            <img src={clody} alt="" />
+
+          </SwiperSlide>
+          <SwiperSlide>
+            SAT
+            <img src={clody} alt="" />
+
+          </SwiperSlide>
+          <SwiperSlide>
+            SUN
+            <img src={clody} alt="" />
+
+          </SwiperSlide>
         </Swiper>
 
       </div>
@@ -47,27 +91,45 @@ const Content = (props) => {
 
       </div>
 
-      <div className='time'>time</div>
+      <div className='time'>{time}</div>
       <div className='airConditinos'>
         <h3 className='title'>
           AIR CONDITIONS
         </h3>        
-        <p>
-          <span>Real Feal </span>
-          {feels}
-        </p>
-        <p>
-          <span>Wind </span>
-          {wind}
-        </p>
-        <p>
-          <span>Chanse of rain </span>
-          {chanseOfRain}
-        </p>
-        <p>
-          <span>UV index </span>
-          {UVindex}
-        </p>
+        <div className='apiInfo'>
+            <div className='iconText'>
+              <img src={tempIcon} alt="tempIcon" />
+              Real Feal
+            </div>
+
+          
+          <p>{feels}</p>
+        </div>
+        <div className='apiInfo'>
+          
+            <div className='iconText'>
+              <img src={windIcon} alt="windIcon" />
+              Wind 
+            </div>
+          
+          <p>{wind}</p>
+        </div>
+        <div className='apiInfo'>
+          
+            <div className='iconText'>
+              <img src={dromIcon} alt="dromIcon" />
+              Chanse of rain
+            </div> 
+          
+          <p>{chanseOfRain}</p>
+        </div>
+        <div className='apiInfo'>
+            <div className='iconText'>
+              <img src={sunIcon} alt="sunIcon" />
+              UV index
+            </div>
+          <p>{UVindex}</p>
+        </div>
       </div>
     </div>
   )
