@@ -4,10 +4,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  max-width: 100px;
-  height: auto;
   background: rgba(222, 171, 77, 1);
   border-radius: 40px;
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
   .menu{
     display: flex;
     justify-content: center;
@@ -15,18 +17,14 @@
     flex-direction: column;
     gap: 22px;
     padding: 5px;
+    .img-menu{
+      width: 85px;
+      height: 68px;
+    }
   }
 }
 
 
-@media (max-width: 1280px) {
-  .img-menu {
-    width: 90%;
-  }
-  .avatar{
-    width: 60%;
-  }
-}
 
 
 @media (max-width:480px) {

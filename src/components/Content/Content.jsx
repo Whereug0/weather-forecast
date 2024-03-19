@@ -9,7 +9,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-const Content = () => {
+const Content = (props) => {
+  const {
+    feels,
+    wind,
+    chanseOfRain,
+    UVindex,
+  } = props
+
+
   return (
     <div className='info-forecast'>
       <div className='days'>
@@ -44,10 +52,22 @@ const Content = () => {
         <h3 className='title'>
           AIR CONDITIONS
         </h3>        
-        <p>Real feel</p>
-        <p>wind</p>
-        <p>Chanse of rain</p>
-        <p>UV index</p>
+        <p>
+          <span>Real Feal </span>
+          {feels}
+        </p>
+        <p>
+          <span>Wind </span>
+          {wind}
+        </p>
+        <p>
+          <span>Chanse of rain </span>
+          {chanseOfRain}
+        </p>
+        <p>
+          <span>UV index </span>
+          {UVindex}
+        </p>
       </div>
     </div>
   )
